@@ -37,39 +37,78 @@ For every company analysis, follow this sequence:
 
 ## Step 1: Classify the Company
 
-Classify the company into one of the following categories:
+Classify the company by value driver, not by industry label alone.
 
-| Company Type | Typical Example | Primary Focus |
+Use one of the following categories:
+
+| Company Type | Typical Example | Primary Value Driver |
 |---|---|---|
-| Clinical-stage biotech | OnKure-style oncology biotech | Pipeline, mechanism, clinical data, trial design, probability of success, cash runway, dilution risk |
-| Diagnostics / screening company | GRAIL-style cancer screening company | Test volume, realized price, reimbursement, clinical utility, adoption, gross margin |
-| Commercial-stage biotech / pharma | Approved-product biotech | Revenue durability, competition, patent life, label expansion, pipeline replacement |
-| Integrated pharmaceutical company | Hengrui-style pharma | Revenue mix, policy risk, innovative drugs, overseas licensing, pipeline value, DCF/SOTP |
-| Life-science tools company | Research tools / platform company | Installed base, recurring revenue, customer concentration, margins |
-| Hybrid / unclear | Mixed business model | Explain the hybrid nature and combine models |
+| Clinical-stage biotech | OnKure-style oncology biotech | Unapproved pipeline assets, clinical data, probability of success, catalysts |
+| Diagnostics / screening company | GRAIL-style cancer screening company | Test volume, realized ASP, reimbursement, clinical utility, adoption |
+| Commercial-stage biotech / pharma | Approved-product biotech | Product revenue, patent life, competition, label expansion, pipeline replacement |
+| Integrated pharmaceutical company | Hengrui-style pharma | Mature revenue, innovative pipeline, policy risk, overseas licensing, SOTP value |
+| Life-science tools company | Research tools / platform company | Installed base, consumables pull-through, recurring service revenue, margins |
+| CDMO / CMO | Contract manufacturing company | Capacity, utilization, backlog, pricing, customer concentration |
+| Medical device / consumables company | Surgical device or hospital consumables company | Installed base, procedure volume, consumables pull-through, reimbursement |
+| Digital health / SaMD company | Medical software or AI-enabled healthcare company | ARR, PMPM, user retention, utilization, reimbursement, regulatory classification |
+| Rare disease / orphan drug company | Orphan drug developer | Diagnosed population, treatable population, pricing, access, exclusivity |
+| Synthetic biology / platform company | Platform with service revenue and downstream economics | Service revenue, milestones, royalties, value-share, platform optionality |
+| Hybrid / unclear | Mixed business model | Use SOTP and explain which segment uses which model |
+| Other / unspecified | Not enough information | Mark classification as `unspecified` and identify missing information |
 
-If the company does not fit cleanly into one category, explain why and use a hybrid framework.
+If the company does not fit cleanly into one category, classify it as hybrid and use SOTP.
+
+Always explain why the classification fits.
 
 ## Step 2: Select the Main Analysis Model
 
-Use the company type to select the primary model.
+Select the primary model based on where enterprise value comes from.
 
 | Company Type | Main Model | Supporting Analysis |
 |---|---|---|
-| Clinical-stage biotech | rNPV | Catalyst analysis, trial design review, cash runway, dilution risk |
+| Clinical-stage biotech | rNPV | Trial design review, catalyst analysis, cash runway, dilution risk |
 | Diagnostics / screening company | Volume-price model | Reimbursement, adoption curve, clinical utility, gross margin |
-| Commercial-stage biotech / pharma | DCF + pipeline overlay | Patent life, competition, lifecycle management, label expansion |
-| Integrated pharma | SOTP + DCF | Pipeline rNPV, licensing optionality, policy risk |
-| Life-science tools company | Revenue growth + margin model | Installed base, recurring revenue, customer quality |
-| Hybrid / unclear | Mixed framework | Explain which part of the business uses which model |
+| Commercial-stage biotech / pharma | DCF + pipeline overlay | Patent life, LOE, competition, label expansion, lifecycle management |
+| Integrated pharma | SOTP + DCF | Pipeline rNPV, policy risk, licensing optionality |
+| Life-science tools company | Installed base + consumables model | Recurring revenue, service attach rate, customer quality |
+| CDMO / CMO | Capacity-utilization model | Backlog, customer concentration, capex, utilization, pricing |
+| Medical device / consumables company | Installed base + procedure / pull-through model | Procedure volume, capital equipment cycle, consumables ASP |
+| Digital health / SaMD company | ARR / PMPM + cohort model | Churn, retention, utilization, regulatory classification, payer coverage |
+| Rare disease / orphan drug company | rNPV with population-access overlay | Diagnosed population, treatable population, access, orphan exclusivity |
+| Synthetic biology / platform company | Service revenue + milestone / royalty SOTP | Platform optionality, value-share, program-level probability |
+| Hybrid / unclear | SOTP | Use the correct model for each segment |
+| Other / unspecified | Temporary mixed framework | Identify missing inputs before valuation |
 
-Do not force one model onto all companies.
+Do not force one model onto all healthcare companies.
 
 Examples:
 
-- OnKure-style company → clinical-stage biotech → rNPV + catalyst/risk analysis
-- GRAIL-style company → diagnostics / screening → volume-price model
-- Hengrui-style company → integrated pharma → SOTP + DCF
+- OnKure-style company -> clinical-stage biotech -> rNPV + catalyst/risk analysis
+- GRAIL-style company -> diagnostics / screening -> volume-price model
+- Hengrui-style company -> integrated pharma -> SOTP + DCF
+- CDMO company -> capacity-utilization model + DCF
+- Medical device company -> installed base + procedure/pull-through model
+- Digital health company -> ARR/PMPM + cohort model
+
+## Step 2A: Identify the Revenue Architecture
+
+Before building valuation, identify how the company actually makes money.
+
+Answer these questions:
+
+| Question | If Yes, Consider |
+|---|---|
+| Is most value from unapproved pipeline assets? | rNPV |
+| Is most value from stable commercial products? | DCF |
+| Does the company have multiple unrelated or mixed-maturity segments? | SOTP |
+| Is revenue driven by test volume, procedures, or consumables? | Volume-price or installed base model |
+| Is revenue driven by contracted manufacturing or services? | Capacity-utilization or unit-economics model |
+| Is revenue subscription-like or PMPM-based? | ARR / PMPM cohort model |
+| Is value driven by milestones, royalties, or value-share? | Probability-weighted SOTP or option-adjusted SOTP |
+
+Operating models such as volume-price, installed base, capacity-utilization, and ARR/PMPM usually estimate revenue and margin first. Then connect them to DCF or SOTP.
+
+Do not treat a revenue model as a complete valuation model by itself.
 
 ## Step 3: Source Priority
 
@@ -446,6 +485,7 @@ End every report with this table:
 | Key question |  |
 | Data that would change the thesis |  |
 | Main unresolved inputs |  |
+| Valuation completeness | complete / partial / incomplete |
 | Watchlist view | attractive / neutral / avoid for now |
 
 The watchlist view is a research judgment, not personalized investment advice.
@@ -464,6 +504,48 @@ The watchlist view is a research judgment, not personalized investment advice.
 - Prefer ranges over single-point estimates.
 - State the key assumption behind every valuation scenario.
 - Do not recommend buying, selling, or holding for the user personally.
+
+## Uncertainty Tagging Rules
+
+For every major valuation input, include uncertainty metadata.
+
+Each important model input should include:
+
+- Source Type
+- Confidence
+- Scenario
+- As-of date, if available
+- Whether the value is a confirmed fact, analyst assumption, or scenario assumption
+
+Use these labels:
+
+| Label | Allowed Values |
+|---|---|
+| Source Type | filing / regulator / trial registry / literature / company guidance / industry report / analyst assumption |
+| Confidence | high / medium / low |
+| Scenario | base / bull / bear |
+| Input Type | confirmed fact / analyst assumption / scenario assumption / unspecified |
+
+Rules:
+
+- If a key input cannot be verified, write `unspecified`.
+- If a key input is estimated rather than directly disclosed, label it as an assumption.
+- If a key input is highly uncertain, provide a range instead of a single number.
+- If two or more major valuation inputs are low-confidence, do not present a precise valuation result.
+- If a valuation depends mainly on analyst assumptions, state that the valuation is assumption-sensitive.
+- If sources conflict, explain the conflict rather than choosing one silently.
+
+Use this valuation completeness label:
+
+| Valuation Completeness | Meaning |
+|---|---|
+| complete | Most key inputs are sourced from filings, regulators, trial registries, or strong literature |
+| partial | Some key inputs are missing or assumption-based, but the framework is still useful |
+| incomplete | Too many key inputs are missing or low-confidence for a meaningful valuation |
+
+If valuation completeness is `partial` or `incomplete`, emphasize scenario analysis over point estimates.
+
+Do not present precise price targets when valuation completeness is `partial` or `incomplete`.
 
 ## Human Review Reminder
 
